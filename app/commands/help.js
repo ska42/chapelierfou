@@ -43,10 +43,10 @@ module.exports = class Help extends Command {
     +'**bataille_navale** - Lance une partie de bataille navale !\n'
     +'**tictactoe** id/@mention - Lance une partie de tictactoe contre la cible\n'
 
-    if ( if(Permission.isOwner(message.member) ||
-            Permission.isHelper(message.member) ||
-            Permission.isAdministrator(message.member) ||
-            Permission.isModerator(message.member)) ){
+    if ( Permission.isOwner(message.member) ||
+         Permission.isHelper(message.member) ||
+         Permission.isAdministrator(message.member) ||
+         Permission.isModerator(message.member) ){
               string+='```md\n'
               +'# Modération\n'
               +'```\n'
@@ -55,9 +55,9 @@ module.exports = class Help extends Command {
               +'**warn** id/@mention raison - Averti la cible par message privé avec la raison\n'
     }
 
-      if ( if(Permission.isOwner(message.member) ||
-              Permission.isAdministrator(message.member) ||
-              Permission.isModerator(message.member)) ){
+      if ( Permission.isOwner(message.member) ||
+           Permission.isAdministrator(message.member) ||
+           Permission.isModerator(message.member) ){
                 string+='**ban** id/@mention [raison] - Banni la cible\n'
                 +'**forceban** id [raison] - Force le bannissement de la cible, même si elle n\'est plus sur le serveur (uniquement par id)\n'
                 +'**unban** id - Débanni la cible.\n'
@@ -65,8 +65,8 @@ module.exports = class Help extends Command {
                 +'**purge** - Expulse toutes les personnes qui ont uniquement le rôle everyone\n'
       }
 
-      if ( if(Permission.isOwner(message.member) ||
-              Permission.isAdministrator(message.member)) ){
+      if ( Permission.isOwner(message.member) ||
+           Permission.isAdministrator(message.member) ){
                 string+='**send** id/#mention message - Envoi le message dans le salon ciblé via le bot'
       }
 
