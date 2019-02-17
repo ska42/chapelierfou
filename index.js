@@ -16,6 +16,7 @@ const sql = new SQLite('./mmr.sqlite')
   const Mute = require ('@commands/mod/mute')
   const Unmute = require ('@commands/mod/unmute')
   const Kick = require('@commands/mod/kick')
+  const Purge = require('@commands/mod/purge')
   /* Games */
   const Tictactoe = require ('@commands/games/tictactoe')
   const BatailleNavale = require('@commands/games/batailleNavale')
@@ -87,7 +88,7 @@ bot.on('message', function(message) {
     let commandUsed = Ping.parse(message, bot, sql) || SendEmbed.parse(message, bot, sql) || Kick.parse(message, bot, sql) ||
      Ban.parse(message, bot, sql) || Forceban.parse(message, bot, sql) || Send.parse(message, bot, sql) || Warn.parse(message, bot, sql) ||
      Mute.parse(message, bot, sql) || Unmute.parse(message, bot, sql) || Tictactoe.parse(message, bot, sql) || Mmr.parse(message, bot, sql) ||
-     Top.parse(message, bot, sql) || BatailleNavale.parse(message, bot, sql) || Unban.parse(message, bot, sql)
+     Top.parse(message, bot, sql) || BatailleNavale.parse(message, bot, sql) || Unban.parse(message, bot, sql) || Purge.parse(message, bot, sql)
   }
 
    /* Detecte si le message contient une invitation Discord et qu'il n'est ni un bot, ni l'owner, ni un modérateur ou un administrateur */
