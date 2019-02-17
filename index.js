@@ -8,20 +8,24 @@ const SQLite = require("better-sqlite3")
 const sql = new SQLite('./mmr.sqlite')
 
 /* Commandes */
-const Ping = require('@commands/ping')
-const SendEmbed = require('@commands/sendEmbed')
-const Kick = require('@commands/kick')
-const Send = require('@commands/send')
-const Ban = require('@commands/ban')
-const Forceban = require('@commands/forceban')
-const Unban = require('@commands/unban')
-const Warn = require('@commands/warn')
-const Mute = require ('@commands/mute')
-const Unmute = require ('@commands/unmute')
-const Tictactoe = require ('@commands/tictactoe')
-const Mmr = require ('@commands/mmr')
-const Top = require ('@commands/top')
-const BatailleNavale = require('@commands/batailleNavale')
+  /* Modération */
+  const Ban = require('@commands/mod/ban')
+  const Forceban = require('@commands/mod/forceban')
+  const Unban = require('@commands/mod/unban')
+  const Warn = require('@commands/mod/warn')
+  const Mute = require ('@commands/mod/mute')
+  const Unmute = require ('@commands/mod/unmute')
+  const Kick = require('@commands/mod/kick')
+  /* Games */
+  const Tictactoe = require ('@commands/games/tictactoe')
+  const BatailleNavale = require('@commands/games/batailleNavale')
+  /* Score */
+  const Mmr = require ('@commands/score/mmr')
+  const Top = require ('@commands/score/top')
+  /* Global */
+  const Ping = require('@commands/ping')
+  const SendEmbed = require('@commands/sendEmbed')
+  const Send = require('@commands/send')
 
 /* Classes */
 const Permission = require('@classes/permission')
