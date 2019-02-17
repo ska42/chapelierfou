@@ -10,7 +10,7 @@ const sql = new SQLite('./mmr.sqlite')
 /* Commandes */
 const Ping = require('@commands/ping')
 const SendEmbed = require('@commands/sendEmbed')
-const Kick = require('@commands@commands/kick')
+const Kick = require('@commands/kick')
 const Send = require('@commands/send')
 const Ban = require('@commands/ban')
 const Forceban = require('@commands/forceban')
