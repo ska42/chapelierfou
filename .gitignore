@@ -78,10 +78,6 @@ typings/
 # config file
 config.json
 
-#package json
-package-lock.json
-package.json
-
 #BDD Sqlite
 mmr.sqlite
 
