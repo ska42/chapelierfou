@@ -1,13 +1,21 @@
 {
   "name": "chapelierfou",
   "version": "1.0.0",
-  "description": "",
+  "description": "Personal Discord Bot for Madness",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/SimplySka/chapelierfou.git"
+    },
+  "author": "Léo Martin - Ska",
   "license": "ISC",
+  "bugs": {
+      "url": "https://github.com/SimplySka/chapelierfou/issues"
+    },
+  "homepage": "https://github.com/SimplySka/chapelierfou",
   "dependencies": {
     "better-sqlite3": "^5.4.0",
     "discord.js": "^11.4.2",
