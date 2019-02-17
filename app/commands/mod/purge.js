@@ -47,6 +47,8 @@ module.exports = class Purge extends Command {
            }
          })
 
+         Success.purge(i, message)
+
     } else {
 
       Error.noPermission(message.channel)

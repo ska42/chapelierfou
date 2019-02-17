@@ -11,6 +11,10 @@ module.exports = class Success {
     message.channel.send('👌 '+tag+' (`'+id+'`) a été expulsé (`'+reason+'`) <a:FBI:533391336573763614>')
   }
 
+  static purge (number, message) {
+    message.channel.send('👌 **'+number+'** comptes purgés.')
+  }
+
   static mute (tag, id, reason, message) {
     message.channel.send('👌 '+tag+' (`'+id+'`) a été mute (`'+reason+'`) :mute:')
   }
