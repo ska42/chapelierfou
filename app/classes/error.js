@@ -1,4 +1,4 @@
-const config = require("../config.json")
+const config = require("@config")
 
 /**
   * Classe représentant les erreurs d'une commande

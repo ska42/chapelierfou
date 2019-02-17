@@ -1,4 +1,4 @@
-const config = require("../config.json")
+const config = require("@config")
 
 /**
   * Classe permettant d'envoyer un message privé

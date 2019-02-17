@@ -1,12 +1,12 @@
 const Discord = require('discord.js')
-const config = require("../../config.json")
+const config = require("@config")
 
 /* Games */
-const Game = require('../game')
-const Boat = require('./boat')
+const Game = require('@games/game')
+const Boat = require('@games/battleship/boat')
 
 /* Classes */
-const Error = require('../../classes/error')
+const Error = require('@classes/error')
 
 /**
   * Classe représentant le jeu bataille navale

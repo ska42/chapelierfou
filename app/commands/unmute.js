@@ -1,30 +1,33 @@
 const Discord = require('discord.js')
-const Command = require('./command')
-const config = require("../config.json")
+const config = require("@config")
+
+/* Commands */
+const Command = require('@commands/command')
 
 /* Classes */
-const Report = require('../classes/report')
-const Permission = require('../classes/permission')
-const Success = require('../classes/success')
-const Error = require('../classes/error')
+const Report = require('@classes/report')
+const Permission = require('@classes/permission')
+const Success = require('@classes/success')
+const Error = require('@classes/error')
+const SendMessage = require('@classes/sendMessage')
 
 /**
-  * Classe représentant commande de Warn qui averti par mp un membre
+  * Classe représentant commande de Unmute qui retire le role "Muted"
   * @extends Command
   */
-module.exports = class Warn extends Command {
+module.exports = class Unmute extends Command {
 
   /**
-    * Vérifie que la commande correspond bien au message 'prefix'warn
-    * 'prefix'warn id/@mention [message]
+    * Vérifie que la commande correspond bien au message 'prefix'tictactoe
+    * 'prefix'unmute id/@mention
     * @param {Message} message - Message de la commande
     */
   static match (message) {
-    return message.content.startsWith(config.prefix+"warn");
+    return message.content.startsWith(config.prefix+"unmute");
   }
 
   /**
-    * Lance "l'action" Warn de la commande
+    * Lance "l'action" Unmute de la commande
     * @param {Message} message - Message de la commande
     * @param {Client} bot - Client du bot
     * @param {SQLite} sql - Table sql
@@ -40,17 +43,6 @@ module.exports = class Warn extends Command {
           let args = message.content.split(' ')
           /* id ou mention de la victime */
           let victim = args[1]
-
-          let reason_args = args.slice(0);
-          reason_args.splice(0, 2)
-
-          /* Raison du warn */
-          let reason
-          if(reason_args.length > 0) {
-            reason = reason_args.join(' ')
-          } else {
-            reason = "Aucune."
-          }
 
           if(victim != null){
             /* Récupérer la première mention et la transformer en id */
@@ -69,9 +61,20 @@ module.exports = class Warn extends Command {
               if(Permission.hasHigherRole(message.member, victim) || Permission.isOwner(message.member)){
 
                 let user = message.guild.members.get(victim).user
-                Report.warn(user, message.author, reason, bot)
-                message.guild.members.get(victim).send('⚠️ Vous avez reçu un avertissement sur '+message.guild.name+': `'+reason+'`')
-                  .then(() => Success.warn(user.tag, victim, reason, message), () => Error.memberDM(message.channel))
+                if(message.guild.members.get(victim).roles.get(config.roles.idMuted)){
+
+                  message.guild.members.get(victim).removeRole(config.roles.idMuted)
+
+                  Report.unmute(user, message.author, bot)
+
+                  SendMessage.unmute(message.guild.members.get(victim))
+                    .then(() => Success.unmute(user.tag, victim, message), () => Error.memberDM(message.channel))
+
+                } else {
+
+                  Error.notMuted(message.channel)
+
+                }
 
               } else {
 
@@ -102,7 +105,7 @@ module.exports = class Warn extends Command {
             }
           } else {
 
-            Error.warnError(message.channel)
+            Error.unmuteError(message.channel)
 
           }
         } else {

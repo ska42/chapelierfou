@@ -1,30 +1,31 @@
+require('module-alias/register')
 const Discord = require('discord.js')
 const bot = new Discord.Client()
-const config = require("./config.json")
+const config = require("@config")
 
 /* SQL */
 const SQLite = require("better-sqlite3")
 const sql = new SQLite('./mmr.sqlite')
 
 /* Commandes */
-const Ping = require('./commands/ping')
-const SendEmbed = require('./commands/sendEmbed')
-const Kick = require('./commands/kick')
-const Send = require('./commands/send')
-const Ban = require('./commands/ban')
-const Forceban = require('./commands/forceban')
-const Unban = require('./commands/unban')
-const Warn = require('./commands/warn')
-const Mute = require ('./commands/mute')
-const Unmute = require ('./commands/unmute')
-const Tictactoe = require ('./commands/tictactoe')
-const Mmr = require ('./commands/mmr')
-const Top = require ('./commands/top')
-const BatailleNavale = require('./commands/batailleNavale')
+const Ping = require('@commands/ping')
+const SendEmbed = require('@commands/sendEmbed')
+const Kick = require('@commands@commands/kick')
+const Send = require('@commands/send')
+const Ban = require('@commands/ban')
+const Forceban = require('@commands/forceban')
+const Unban = require('@commands/unban')
+const Warn = require('@commands/warn')
+const Mute = require ('@commands/mute')
+const Unmute = require ('@commands/unmute')
+const Tictactoe = require ('@commands/tictactoe')
+const Mmr = require ('@commands/mmr')
+const Top = require ('@commands/top')
+const BatailleNavale = require('@commands/batailleNavale')
 
 /* Classes */
-const Permission = require('./classes/permission')
-const Report = require('./classes/report')
+const Permission = require('@classes/permission')
+const Report = require('@classes/report')
 
 /* Quand le bot a démarré */
 bot.on('ready', function () {

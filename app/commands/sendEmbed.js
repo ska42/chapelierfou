@@ -1,6 +1,8 @@
 const Discord = require('discord.js')
-const Command = require('./command')
-const config = require("../config.json")
+const config = require("@config")
+
+/* Commands */
+const Command = require('@commands/command')
 
 module.exports = class SendEmbed extends Command {
 

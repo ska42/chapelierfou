@@ -1,10 +1,12 @@
-const Command = require('./command')
-const config = require("../config.json")
+const config = require("@config")
+
+/* Commands */
+const Command = require('@commands/command')
 
 /* Classes */
-const Permission = require('../classes/permission')
-const Success = require('../classes/success')
-const Error = require('../classes/error')
+const Permission = require('@classes/permission')
+const Success = require('@classes/success')
+const Error = require('@classes/error')
 
 /**
   * Classe représentant commande de send qui envoi un message dans un ceratin channel

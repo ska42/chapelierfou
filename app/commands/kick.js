@@ -1,12 +1,14 @@
 const Discord = require('discord.js')
-const Command = require('./command')
-const config = require("../config.json")
+const config = require("@config")
+
+/* Commands */
+const Command = require('@commands/command')
 
 /* Classes */
-const Report = require('../classes/report')
-const Permission = require('../classes/permission')
-const Success = require('../classes/success')
-const Error = require('../classes/error')
+const Report = require('@classes/report')
+const Permission = require('@classes/permission')
+const Success = require('@classes/success')
+const Error = require('@classes/error')
 
 /**
   * Classe représentant commande de kick pour expulser un membre du serveur

@@ -1,8 +1,7 @@
-const Command = require('./command');
-const config = require("../config.json")
+const config = require("@config")
 
-/* SQL */
-const SQLite = require("better-sqlite3")
+/* Commands */
+const Command = require('@commands/command')
 
 /**
   * Classe représentant commande de top pour connaître les tops mmr

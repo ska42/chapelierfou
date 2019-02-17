@@ -1,5 +1,7 @@
-const Command = require('./command');
-const config = require("../config.json")
+const config = require("@config")
+
+/* Commands */
+const Command = require('@commands/command')
 
 /**
   * Classe représentant commande de ping

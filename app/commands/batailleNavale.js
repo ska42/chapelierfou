@@ -1,11 +1,13 @@
-const Command = require('./command');
-const config = require("../config.json")
+const config = require("@config")
+
+/* Commands */
+const Command = require('@commands/command')
 
 /* Games */
-const Battleship = require("../games/battleship/battleship")
+const Battleship = require("@games/battleship/battleship")
 
 /* Classes */
-const Error = require('../classes/error')
+const Error = require('@classes/error')
 
 /**
   * Classe représentant commande de ping

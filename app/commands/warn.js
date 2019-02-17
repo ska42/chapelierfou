@@ -1,31 +1,32 @@
 const Discord = require('discord.js')
-const Command = require('./command')
-const config = require("../config.json")
+const config = require("@config")
+
+/* Commands */
+const Command = require('@commands/command')
 
 /* Classes */
-const Report = require('../classes/report')
-const Permission = require('../classes/permission')
-const Success = require('../classes/success')
-const Error = require('../classes/error')
-const SendMessage = require('../classes/sendMessage')
+const Report = require('@classes/report')
+const Permission = require('@classes/permission')
+const Success = require('@classes/success')
+const Error = require('@classes/error')
 
 /**
-  * Classe représentant commande de Mute pour affecter le role "Muted" a un membre
+  * Classe représentant commande de Warn qui averti par mp un membre
   * @extends Command
   */
-module.exports = class Mute extends Command {
+module.exports = class Warn extends Command {
 
   /**
-    * Vérifie que la commande correspond bien au message 'prefix'mute
-    * 'prefix'mute id/@mention [reason]
+    * Vérifie que la commande correspond bien au message 'prefix'warn
+    * 'prefix'warn id/@mention [message]
     * @param {Message} message - Message de la commande
     */
   static match (message) {
-    return message.content.startsWith(config.prefix+"mute");
+    return message.content.startsWith(config.prefix+"warn");
   }
 
   /**
-    * Lance "l'action" mute de la commande
+    * Lance "l'action" Warn de la commande
     * @param {Message} message - Message de la commande
     * @param {Client} bot - Client du bot
     * @param {SQLite} sql - Table sql
@@ -45,7 +46,7 @@ module.exports = class Mute extends Command {
           let reason_args = args.slice(0);
           reason_args.splice(0, 2)
 
-          /* Raison du mute */
+          /* Raison du warn */
           let reason
           if(reason_args.length > 0) {
             reason = reason_args.join(' ')
@@ -70,16 +71,9 @@ module.exports = class Mute extends Command {
               if(Permission.hasHigherRole(message.member, victim) || Permission.isOwner(message.member)){
 
                 let user = message.guild.members.get(victim).user
-                message.guild.members.get(victim).addRole(config.roles.idMuted)
-                Report.mute(user, message.author, reason, bot)
-
-                if(reason=="Aucune."){
-                  SendMessage.mute(message.guild.members.get(victim))
-                    .then(() => Success.mute(user.tag, victim, reason, message), () => Error.memberDM(message.channel))
-                } else {
-                  SendMessage.mute(message.guild.members.get(victim), reason)
-                    .then(() => Success.mute(user.tag, victim, reason, message), () => Error.memberDM(message.channel))
-                }
+                Report.warn(user, message.author, reason, bot)
+                message.guild.members.get(victim).send('⚠️ Vous avez reçu un avertissement sur '+message.guild.name+': `'+reason+'`')
+                  .then(() => Success.warn(user.tag, victim, reason, message), () => Error.memberDM(message.channel))
 
               } else {
 
@@ -110,7 +104,7 @@ module.exports = class Mute extends Command {
             }
           } else {
 
-            Error.muteError(message.channel)
+            Error.warnError(message.channel)
 
           }
         } else {

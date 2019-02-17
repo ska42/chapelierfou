@@ -22,5 +22,11 @@
     "module-alias": "^2.2.0",
     "node-gyp": "^3.8.0",
     "request": "^2.88.0"
+  },
+  "_moduleAliases": {
+    "@classes": "app/classes",
+    "@commands": "app/commands",
+    "@games": "app/games",
+    "@config": "app/config.json"
   }
 }

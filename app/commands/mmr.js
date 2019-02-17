@@ -1,11 +1,10 @@
-const Command = require('./command');
-const config = require("../config.json")
+const config = require("@config")
 
-/* SQL */
-const SQLite = require("better-sqlite3")
+/* Commands */
+const Command = require('@commands/command')
 
 /* Classes */
-const Error = require('../classes/error')
+const Error = require('@classes/error')
 
 /**
   * Classe représentant commande de mmr pour voir le mmr dans la base de donnée d'un membre
