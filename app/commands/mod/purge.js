@@ -10,14 +10,14 @@ const Success = require('@classes/success')
 const Error = require('@classes/error')
 
 /**
-  * Classe représentant commande de kick pour expulser un membre du serveur
+  * Classe représentant commande de purge pour expulser tous les membres avec le role everyone
   * @extends Command
   */
 module.exports = class Purge extends Command {
 
   /**
-    * Vérifie que la commande correspond bien au message 'prefix'kick
-    * 'prefix'kick id/@mention [reason]
+    * Vérifie que la commande correspond bien au message 'prefix'purge
+    * 'prefix'purge
     * @param {Message} message - Message de la commande
     */
   static match (message) {
@@ -25,7 +25,7 @@ module.exports = class Purge extends Command {
   }
 
   /**
-    * Lance "l'action" kick de la commande
+    * Lance "l'action" purge de la commande
     * @param {Message} message - Message de la commande
     * @param {Client} bot - Client du bot
     * @param {SQLite} sql - Table sql

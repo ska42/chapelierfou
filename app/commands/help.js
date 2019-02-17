@@ -3,8 +3,11 @@ const config = require("@config")
 /* Commands */
 const Command = require('@commands/command')
 
+/* Classes */
+const Permission = require('@classes/permission')
+
 /**
-  * Classe représentant commande de ping
+  * Classe représentant commande de help
   * @extends Command
   */
 module.exports = class Help extends Command {
@@ -19,7 +22,7 @@ module.exports = class Help extends Command {
   }
 
   /**
-    * Lance "l'action" ping de la commande
+    * Lance "l'action" help de la commande
     * @param {Message} message - Message de la commande
     * @param {Client} bot - Client du bot
     * @param {SQLite} sql - Table sql
