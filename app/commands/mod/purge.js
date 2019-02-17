@@ -42,7 +42,7 @@ module.exports = class Purge extends Command {
          bot.guilds.get(config.idGuild).members.forEach( function (member) {
            if ( member.highestRole.id == config.roles.idEveryone ) {
              member.kick("Purge")
-             Report.kick(user, bot.user, "Purge", bot)
+             Report.kick(member.user, bot.user, "Purge", bot)
              i++
            }
          })
