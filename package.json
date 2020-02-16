@@ -21,6 +21,7 @@
     "discord.js": "^11.4.2",
     "module-alias": "^2.2.0",
     "node-gyp": "^3.8.0",
+    "pm2": "^4.2.3",
     "request": "^2.88.0"
   },
   "_moduleAliases": {

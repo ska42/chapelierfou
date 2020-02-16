@@ -273,7 +273,7 @@ module.exports = class Battleship extends Game {
             string+=":white_circle:"
             break;
           case 1:
-            string+=":large_blue_circle:"
+            string+=":blue_circle:"
             break;
           case 2:
             string+=":red_circle:"

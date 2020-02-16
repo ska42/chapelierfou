@@ -47,7 +47,7 @@ module.exports = class Report {
   }
 
   static error (error, bot) {
-    bot.guilds.get(config.idGuild).channels.get(idStaffReports).send(this.timerString(new Date())+' '+error.toString())
+    bot.guilds.get(config.idGuild).channels.get(idStaffReports).send(this.timerString(new Date())+' '+console.log(error))
   }
 
   static timerString (today) {
